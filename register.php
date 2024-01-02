@@ -28,9 +28,10 @@
         $user_name = $_POST['user_name'];
         $user_email = $_POST['user_email'];
         $user_password = $_POST['user_password'];
+        $user_edu = $_GET['action'];
 
         if ($_POST["user_password"] === $_POST["confirm_password"]) {
-            $sql = "INSERT INTO user (user_name, user_password, user_email) VALUES ('$user_name','$user_password','$user_email')";
+            $sql = "INSERT INTO user (user_name, user_password, user_email, user_edu) VALUES ('$user_name','$user_password','$user_email','$user_edu')";
 
         $stmt = mysqli_prepare($con, $sql);
 
