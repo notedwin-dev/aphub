@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,20 +11,22 @@
         nav {
             background-color: grey;
             top: 0;
+            left: 0;
             width: 100%;
             position: fixed;
-            left: 0;
             display: flex;
             flex-direction: row;
             padding: 5px;
             justify-content: space-between;
         }
-        img {
+
+        #favicon {
             padding-bottom: 5px;
             border-radius: 10px;
             border: none;
             width: fit-content;
             height: 32px;
+            justify-content: center;
         }
 
         input[type="text"] {
@@ -49,24 +52,45 @@
             margin-right: 10px;
         }
 
+        @media screen and (min-width: 1000px) {
+            input[type="text"] {
+                width: 700px;
+            }
+        }
+
+        @media screen and (max-width: 1000px) {
+            input[type="text"] {
+                width: 300px;
+            }
+        }
+
         @media screen and (max-width: 756px) {
             #nav-btn {
                 display: none;
             }
-        }
 
+            input[type="text"] {
+                width: 200px;
+
+            }
+        }
     </style>
 </head>
+
 <body>
     <nav>
-        <img src="logo.png">
+        <img src="logo.png" id="favicon">
         <input type="text" placeholder="Enter Quiz Code...">
         <div>
             <input type="button" value="Register" id="nav-btn">
             <input type="button" value="Login" id="nav-btn">
 
-
+            <i class="fa fa-bars fa-2x" style="display:none"></i>
         </div>
+
     </nav>
+
+
 </body>
+
 </html>
