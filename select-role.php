@@ -31,10 +31,10 @@
     <?php
       
       if(isset($_POST['lecturer'])) { 
-        header('location: login.php?action=lecturer');
+        header('location: register.php?action=lecturer');
       } 
       if(isset($_POST['student'])) { 
-        header('location: login.php');
+        header('location: register.php?action=student');
       } 
   ?> 
 
