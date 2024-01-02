@@ -28,9 +28,40 @@
         $user_name = $_POST['user_name'];
         $user_email = $_POST['user_email'];
         $user_password = $_POST['user_password'];
-        $user_edu = $_GET['action'];
+        $user_edu = $_GET['role'];
+
+        function validateStudentEmail($email) {
+            // Use a regular expression to validate the student email format
+            $pattern = '/^TP\d{6}@mail\.apu\.edu\.my$/';
+            return preg_match($pattern, $email);
+        }
+        
+        // Function to validate lecturer email
+        function validateLecturerEmail($email) {
+            // Use a regular expression to validate the lecturer email format
+            $pattern = '/^[a-zA-Z0-9._%+-]+@apu\.edu\.my$/';
+            return preg_match($pattern, $email);
+        }
+        
+        // Function to display an error message
+        function displayError($message) {
+            echo '<p>Error: ' . $message . '</p>';
+        }
 
         if ($_POST["user_password"] === $_POST["confirm_password"]) {
+            if ($user_edu == 'student') {
+                if (!validateStudentEmail($user_email)) {
+                    displayError('Invalid email format!');
+                }
+            }
+        elseif ($role === 'lecturer') {
+            if (!validateLecturerEmail($user_email)) {
+                displayError('Invalid email format!');
+            }
+        } else {
+            displayError('Invalid role');   
+        }
+
             $sql = "INSERT INTO user (user_name, user_password, user_email, user_edu) VALUES ('$user_name','$user_password','$user_email','$user_edu')";
 
         $stmt = mysqli_prepare($con, $sql);
