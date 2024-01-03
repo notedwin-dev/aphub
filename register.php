@@ -4,8 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register |APHub</title>
+    <style>
+        #favicon {
+            padding-bottom: 5px;
+            border-radius: 10px;
+            border: none;
+            width: fit-content;
+            height: 32px;
+            justify-content: center;
+        }
+    </style>
 </head>
 <body>
+    <img src="home/logo.png" id="favicon">
     <form method="post" enctype="multipart/form-data">
     Username<br>
     <input type="text" name="user_name" required><br><br>

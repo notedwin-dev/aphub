@@ -4,9 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <style>
+        #favicon {
+            padding-bottom: 5px;
+            border-radius: 10px;
+            border: none;
+            width: fit-content;
+            height: 32px;
+            justify-content: center;
+        }
+    </style>
 </head>
 <body>
-<form method="post">
+    <img src="home/logo.png" id="favicon">
+    <form method="post">
         <h1>Welcome back!</h1>
         <form method="get">
             <label>Username:</label>
