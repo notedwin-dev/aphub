@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <style>
-        #favicon {
-            padding-bottom: 5px;
-            border-radius: 10px;
-            border: none;
-            width: fit-content;
-            height: 32px;
-            justify-content: center;
-        }
-    </style>
+    <link rel="stylesheet" href="home/style.css">
 </head>
+
 <body>
-    <img src="home/logo.png" id="favicon">
-    <form method="post">
-        <h1>Welcome back!</h1>
+    <img src="home/logo.png" id="nav-icon">
+    <h1 id="main-text-center">Welcome back!</h1>
+    <form method="post" class="login-box">
         <form method="get">
-            <label>Username:</label>
-            <input type="text" name="username" required><br>
-            <label>Password: </label>
-            <input type="password" name="password" required><br>
-            <input type="submit" value="Login" name="loginBtn">
+            <img src="home/partyblahaj.gif" style="border-radius: 50%; border: 1px solid #ccc; margin-top: 10px;">
+            <label id="login-field-text">Username: </label>
+            <input type="text" name="username" required id="login-field">
+
+            <br>
+            <br>
+
+            <label id="login-field-text">Password: </label>
+            <input type="password" name="password" required id="login-field">
+
+            <br>
+            <br>
+
+            <input type="submit" value="Login" name="loginBtn" id="nav-btn">
+            <p>Dont have an account? <a href="select-role.php?action=register">Create one</a>.</p>
+
         </form>
 
-        <p>Dont have an account? <a href="select-role.php?action=register">Create one</a>.</p>
     </form>
 
     <?php
@@ -52,4 +55,5 @@
     }
     ?>
 </body>
+
 </html>

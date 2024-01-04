@@ -7,79 +7,12 @@
     <title>APHub - Home</title>
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-        nav {
-            background-color: grey;
-            top: 0;
-            left: 0;
-            width: 100%;
-            position: fixed;
-            display: flex;
-            flex-direction: row;
-            padding: 5px;
-            justify-content: space-between;
-        }
-
-        #favicon {
-            padding-bottom: 5px;
-            border-radius: 10px;
-            border: none;
-            width: fit-content;
-            height: 32px;
-            justify-content: center;
-        }
-
-        input[type="text"] {
-            background-color: white;
-            width: 500px;
-            height: 30px;
-            border: none;
-            border-radius: 15px;
-            text-align: center;
-            align-items: center;
-            justify-content: center;
-
-        }
-
-        #nav-btn {
-            background-color: pink;
-            width: 75px;
-            height: 30px;
-            border: none;
-            border-radius: 15px;
-            text-align: center;
-            align-items: center;
-            margin-right: 10px;
-        }
-
-        @media screen and (min-width: 1000px) {
-            input[type="text"] {
-                width: 700px;
-            }
-        }
-
-        @media screen and (max-width: 1000px) {
-            input[type="text"] {
-                width: 300px;
-            }
-        }
-
-        @media screen and (max-width: 756px) {
-            #nav-btn {
-                display: none;
-            }
-
-            input[type="text"] {
-                width: 200px;
-
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <nav>
-        <img src="logo.png" id="favicon">
+        <img src="logo.png" id="nav-icon">
         <input type="text" placeholder="Enter Quiz Code...">
         <div>
             <input type="button" value="Register" id="nav-btn">
