@@ -34,7 +34,9 @@
 
 <body>
   <img src="home/logo.png" id="nav-icon">
-  <h1><center>Select your account type!</center></h1>
+  <h1>
+    <center>Select your account type!</center>
+  </h1>
   <form method="post">
     <input type="submit" name="lecturer" value="I'm a Lecturer" class="button">
 
@@ -45,17 +47,17 @@
 
   <script>
     document.getElementById('nav-icon').onclick = function () {
-      window.location.href = 'home.php';
+      window.location.href = 'home';
     };  
   </script>
 
   <?php
 
-  if (isset($_POST['lecturer'])) {
-    header('location: register.php?role=lecturer');
+  if (isset($_POST['lecturer']) && isset($_GET['action'])) {
+    header("location:" . $_GET["action"] . ".php?role=lecturer");
   }
-  if (isset($_POST['student'])) {
-    header('location: register.php?role=student');
+  if (isset($_POST['student']) && isset($_GET['action'])) {
+    header("location:" . $_GET["action"] . ".php?role=student");
   }
   ?>
 

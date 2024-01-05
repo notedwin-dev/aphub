@@ -15,20 +15,15 @@
         <img src="logo.png" id="nav-icon">
         <input type="text" placeholder="Enter Quiz Code...">
         <div>
-            <input type="button" value="Register" id="nav-btn">
-            <input type="button" value="Login" id="nav-btn">
+            <input type="button" value="Register" id="nav-btn"
+                onclick="window.location.href = '../select-role.php?action=register'">
+            <input type="button" value="Login" id="nav-btn"
+                onclick="window.location.href = '../select-role.php?action=login'">
 
             <i class="fa fa-bars fa-2x" style="display:none"></i>
         </div>
 
     </nav>
-
-    <script>
-        document.getElementById('register-btn').onclick = function () {
-            window.location.href = 'register.php';
-        };
-
-    </script>
 
     <footer>
         <p>&copy; 2024 APHub. All rights reserved.</p>
