@@ -2,41 +2,62 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Role Selection</title>
-    <style>
-        #favicon {
-            padding-bottom: 5px;
-            border-radius: 10px;
-            border: none;
-            width: fit-content;
-            height: 32px;
-            justify-content: center;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select Your Role</title>
+  <link rel="stylesheet" href="home/style.css">
+  <style>
+    form {
+      margin: 0;
+      padding: 0;
+      height: 77vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .button {
+      width: 100%;
+      height: 100%;
+      padding: 15px;
+      font-size: 20px;
+      cursor: pointer;
+      margin: 10px 0;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+  </style>
 </head>
 
 <body>
-    <img src="home/logo.png" id="favicon">
-    <h1>Select your account type!</h1>
-    <form method="post">
-        <input type="submit" name="lecturer" value="I'm a Lecturer" class="button">
+  <img src="home/logo.png" id="nav-icon">
+  <h1><center>Select your account type!</center></h1>
+  <form method="post">
+    <input type="submit" name="lecturer" value="I'm a Lecturer" class="button">
 
-        <h1>OR</h1>
+    <h2>OR</h2>
 
-        <input type="submit" name="student" value="I'm a Student" class="button">
-    </form>
+    <input type="submit" name="student" value="I'm a Student" class="button">
+  </form>
 
-    <?php
-      
-      if(isset($_POST['lecturer'])) { 
-        header('location: register.php?role=lecturer');
-      } 
-      if(isset($_POST['student'])) { 
-        header('location: register.php?role=student');
-      } 
-  ?> 
+  <script>
+    document.getElementById('nav-icon').onclick = function () {
+      window.location.href = 'home.php';
+    };  
+  </script>
+
+  <?php
+
+  if (isset($_POST['lecturer'])) {
+    header('location: register.php?role=lecturer');
+  }
+  if (isset($_POST['student'])) {
+    header('location: register.php?role=student');
+  }
+  ?>
 
 </body>
 
