@@ -22,7 +22,7 @@
             <br>
 
             <label id="login-field-text">Password: </label>
-            <input type="password" name="password" required id="login-field">
+            <input type="password" name="password" required id="login-field" style="text-align: center;">
 
             <br>
             <br>
