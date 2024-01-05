@@ -5,6 +5,7 @@
   width: fit-content;
   height: 50px;
   justify-content: center;
+  cursor: pointer;
 }
 
 nav {
@@ -31,7 +32,7 @@ input[type="text"] {
   justify-content: center;
 }
 
-#nav-btn {
+#nav-btn, #register-btn, #login-btn {
   background-color: pink;
   width: 80px;
   height: 40px;
@@ -40,6 +41,7 @@ input[type="text"] {
   text-align: center;
   align-items: center;
   margin-right: 10px;
+  cursor: pointer;
 }
 
 #login-field {
@@ -93,4 +95,14 @@ input[type="text"] {
   input[type="text"] {
     width: 200px;
   }
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }

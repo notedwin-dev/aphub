@@ -4,34 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register |APHub</title>
-    <style>
-        #favicon {
-            padding-bottom: 5px;
-            border-radius: 10px;
-            border: none;
-            width: fit-content;
-            height: 32px;
-            justify-content: center;
-        }
-    </style>
+    <link rel="stylesheet" href="home/style.css">
 </head>
 <body>
-    <img src="home/logo.png" id="favicon">
-    <form method="post" enctype="multipart/form-data">
-    Username<br>
-    <input type="text" name="user_name" required><br><br>
+    <img src="home/logo.png" id="nav-icon">
+    <h1 id="main-text-center">Register Your Account!</h1>
+    <form method="post" class="login-box" enctype="multipart/form-data">
+        <form method="get">
+            <br>
+            <label id="login-field-text">Username:</label>
+            <input type="text" name="user_name" required id="login-field">
 
-    Email<br>
-    <input type="email" name="user_email" required><br><br>
+            <br>
+            <br>
 
-    Password<br>
-    <input type="password" name="user_password" required><br><br>
+            <label id="login-field-text">Email:</label>
+            <input type="email" name="user_email" required id="login-field">
 
-    Confirm Password<br>
-    <input type="password" name="confirm_password" required><br><br>
+            <br>
+            <br>
 
-    <button class="button" name="regBtn">Register</button>
+            <label id="login-field-text">Password:</label>
+            <input type="password" name="user_password" required id="login-field">
+
+            <br>
+            <br>
+
+            <label id="login-field-text">Confirm Password:</label>
+            <input type="password" name="confirm_password" required id="login-field">
+
+            <br>
+            <br>
+
+            <button class="button" name="regBtn" id="nav-btn">Register</button>
+
+            <br>
+            
+        </form>
     </form>
+
+    <script>
+        document.getElementById('nav-icon').onclick = function () {
+            window.location.href = 'home.php';
+        };
+
+    </script>
+
     <?php
     if (isset($_POST['regBtn'])) {
         include("conn.php");

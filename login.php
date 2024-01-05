@@ -14,6 +14,7 @@
     <form method="post" class="login-box">
         <form method="get">
             <img src="home/partyblahaj.gif" style="border-radius: 50%; border: 1px solid #ccc; margin-top: 10px;">
+            <br>
             <label id="login-field-text">Username: </label>
             <input type="text" name="username" required id="login-field">
 
@@ -33,6 +34,13 @@
 
     </form>
 
+    <script>
+        document.getElementById('nav-icon').onclick = function () {
+            window.location.href = 'home.php';
+        };
+
+    </script>
+
     <?php
     include("conn.php");
     session_start();
@@ -47,7 +55,7 @@
         if ($rowcount == 1) {
             session_start();
             $_SESSION['mySession'] = $row['id'];
-            header("location: view.php");
+            header("location: home.php");
         } else {
             echo "Your Login Name or Password is Wrong. Please re-login";
         }
