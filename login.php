@@ -15,8 +15,8 @@
         <form method="get">
             <img src="home/partyblahaj.gif" style="border-radius: 50%; border: 1px solid #ccc; margin-top: 10px;">
             <br>
-            <label id="login-field-text">Username: </label>
-            <input type="text" name="username" required id="login-field">
+            <label id="login-field-text">Username or Email Address: </label>
+            <input type="text" name="username_or_email" required id="login-field">
 
             <br>
             <br>
@@ -45,9 +45,12 @@
     include("conn.php");
     session_start();
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $username = $_POST['username'];
+        $username_or_email = $_POST['username_or_email'];
+
+        $user_edu = $_GET['role'];
+
         $password = $_POST['password'];
-        $sql = "SELECT * FROM user WHERE user_email='$username' and user_password='$password'";
+        $sql = "SELECT * FROM user WHERE user_email='$username_or_email' or user_name='$username_or_email' and user_password='$password' and user_edu='$user_edu'";
         $result = mysqli_query($con, $sql);
 
         $rowcount = mysqli_num_rows($result);
@@ -55,9 +58,9 @@
         if ($rowcount == 1) {
             session_start();
             $_SESSION['mySession'] = $row['id'];
-            header("location: home.php");
+            header("location: home/");
         } else {
-            echo "Your Login Name or Password is Wrong. Please re-login";
+            echo "Your username/email/password is incorrect. Please try again.";
         }
         mysqli_close($con);
     }

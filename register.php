@@ -67,54 +67,47 @@
         $user_password = $_POST['user_password'];
         $user_edu = $_GET['role'];
 
-        function validateStudentEmail($email)
-        {
-            // Use a regular expression to validate the student email format
-            $pattern = '/^TP\d{6}@mail\.apu\.edu\.my$/';
-            return preg_match($pattern, $email);
-        }
+        // Create an array of accepted domains
+        $accepted_domains = ['mail.apu.edu.my', 'apu.edu.my'];
 
-        // Function to validate lecturer email
-        function validateLecturerEmail($email)
+        // Extract the domain from the user's email address
+        $user_domain = substr(strrchr($user_email, "@"), 1);
+
+        function insertIntoDataBase($user_name, $user_email, $user_password, $user_edu)
         {
-            // Use a regular expression to validate the lecturer email format
-            $pattern = '/^[a-zA-Z0-9._%+-]+@apu\.edu\.my$/';
-            return preg_match($pattern, $email);
+            include("conn.php");
+            $sql = "INSERT INTO user (user_name, user_email, user_password, user_edu) VALUES ('$user_name', '$user_email', '$user_password', '$user_edu')";
+            $result = mysqli_query($con, $sql);
+            if ($result) {
+                echo '<script>if(window.confirm("Account created successfully!")) window.location.href = "login.php"</script>';
+            } else {
+                echo "Error: " . $sql . "<br>" . mysqli_error($con);
+            }
+            mysqli_close($con);
         }
 
         // Function to display an error message
         function displayError($message)
         {
-            echo '<p>Error: ' . $message . '</p>';
+            echo '<script>if(window.confirm("' . $message . '")) window.location.href = "select-role.php?action=register"</script>';
         }
 
         if ($_POST["user_password"] === $_POST["confirm_password"]) {
-            if ($user_edu == 'student') {
-                if (!validateStudentEmail($user_email)) {
-                    displayError('Invalid email format!');
-                }
-            } elseif ($role === 'lecturer') {
-                if (!validateLecturerEmail($user_email)) {
-                    displayError('Invalid email format!');
+
+            if (in_array($user_domain, $accepted_domains)) {
+                // The domain is in the array of accepted domains
+    
+                // Check if the user is a student or lecturer
+                if ($user_edu == 'student' && $user_domain == 'mail.apu.edu.my') {
+                    insertIntoDataBase($user_name, $user_email, $user_password, $user_edu);
+                } elseif ($user_edu == 'lecturer' && $user_domain == 'apu.edu.my') {
+                    insertIntoDataBase($user_name, $user_email, $user_password, $user_edu);
+                } else {
+                    displayError('The selected role does not match the domain of the email address provided. Please make sure you register under the correct category.');
                 }
             } else {
-                displayError('Invalid role');
+                displayError('Invalid domain');
             }
-
-            $sql = "INSERT INTO user (user_name, user_password, user_email, user_edu) VALUES ('$user_name','$user_password','$user_email','$user_edu')";
-
-            $stmt = mysqli_prepare($con, $sql);
-
-            mysqli_stmt_execute($stmt);
-
-            $check = mysqli_stmt_affected_rows($stmt);
-
-            if ($check == 1) {
-                echo "<script>alert('Sucessfully registered!'); window.location.href='login.php';</script>";
-            }
-
-            mysqli_close($con);
-
         } else {
             echo "Password confirmation failed.";
         }
