@@ -7,13 +7,13 @@
     <title>Home Page</title>
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home/style.css">
 
 </head>
 
 <body>
     <div id="top-bar">
-        <img src="logo.png" id="nav-icon">
+        <img src="home/logo.png" id="nav-icon">
         <input type="text" placeholder="Enter Quiz Code..." id="quiz-code-input">
         <div>
             <input type="button" value="Register" id="nav-btn" onclick="window.location.href = '../select-role.php?action=register'">
@@ -36,14 +36,39 @@
         </div>
 
         <div id="middle-content">
-            <div id="top-categories">
-                <h2>User Profile</h2>
+            <h2 id="main-text-center">My Profile</h2>
+            <div class="user-details-box">
                 <ul>
                     <form method="post">
-                        
+                        <h2 style="float:left">
+                        <?php
+                            include("conn.php");
+                            $query = "SELECT * FROM user WHERE user_id='$_GET[user_id]'";
+                            $result = mysqli_query($con, $query);
+                            
+                            if ($result) {
+                                $user_details = mysqli_fetch_array($result);
+                                echo "$user_details[user_name]";
+                            } else {
+                                echo "Error: " . mysqli_error($con);
+                            }
+                            
+                            mysqli_close($con);
+                        ?>
+                        </h2>
+                        <!-- put bio here -->
+
+                        <button class="button" id="editbtn">Edit Profile</button>
+
                     </form>
+                    <div id="activities">
+                        <h3>Recent Activities</h3>
+                        <div id="overview-box"></div>
+                    </div>
                 </ul>
             </div>
+
+
         </div>
 
         <div id="right-sidebar">

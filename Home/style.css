@@ -61,7 +61,7 @@ input[type="text"] {
 #main-text-center {
   margin: auto auto;
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
   font-weight: bold;
 }
 
@@ -101,8 +101,9 @@ footer {
   background-color: #333;
   color: #fff;
   text-align: center;
-  padding: 10px;
   position: fixed;
+  padding: 10px;
+  margin-top: 20px;
   bottom: 0;
   width: 100%;
 }
@@ -110,9 +111,11 @@ footer {
 body {
   font-family: Arial, sans-serif;
   margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
   align-items: stretch;
+
 }
 
 #top-bar {
@@ -125,7 +128,7 @@ body {
   width: 100%;
   top: 0;
   z-index: 1000;
-  height: 70px;
+  height: 50px;
 }
 
 #quiz-code-input {
@@ -138,6 +141,7 @@ body {
   justify-content: space-between;
   width: 100%;
   margin-top: 70px;
+  padding-bottom: 2.5rem;
 }
 
 #left-btn {
@@ -158,6 +162,8 @@ body {
   padding: 20px;
   box-sizing: border-box;
   text-align: center;
+  position: relative;
+  margin-bottom: 20px;
 }
 
 #right-sidebar {
@@ -179,4 +185,44 @@ body {
 
 #hot-topics {
   margin-top: 20px;
+}
+
+.user-details-box {
+  position: relative;
+  background-color: rgb(184, 231, 255);
+  height: 500px;
+  margin-top: 20px;
+  position: relative;
+}
+
+#editbtn {
+  background-color: rgb(66, 141, 210); 
+  border-style: none;
+  margin-top: 25px;
+  margin-right: 25px;
+  float: right;
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+#editbtn:hover {
+  background-color: rgb(79, 162, 240);
+}
+
+
+#activities {
+  position: absolute;
+  top: 120px;
+  left: 0px;
+  width: 200px;
+  height: 100px;
+}
+
+#overview-box {
+  background-color: white;
+  height: 50px;
+  width: 50px;
+  top: 150px;
+
 }
