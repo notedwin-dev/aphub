@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>My Profile</title>
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="home/style.css">
@@ -16,8 +16,7 @@
         <img src="home/logo.png" id="nav-icon">
         <input type="text" placeholder="Enter Quiz Code..." id="quiz-code-input">
         <div>
-            <input type="button" value="Register" id="nav-btn" onclick="window.location.href = '../select-role.php?action=register'">
-            <input type="button" value="Login" id="nav-btn" onclick="window.location.href = '../select-role.php?action=login'">
+            <input type="button" value="Logout" id="nav-btn" onclick="window.location.href= 'logout.php'">
             <i class="fa fa-bars fa-2x" id="menu-icon" style="display:none;"></i>
         </div>
     </div>
