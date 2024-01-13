@@ -58,7 +58,7 @@
         if ($rowcount == 1) {
             session_start();
             $_SESSION['mySession'] = $row['id'];
-            header("location: home/");
+            header("location: home.php");
         } else {
             echo "Your username/email/password is incorrect. Please try again.";
         }
