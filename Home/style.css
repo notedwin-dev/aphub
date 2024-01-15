@@ -32,14 +32,12 @@ input[type="text"] {
   justify-content: center;
 }
 
-#nav-btn,
-#register-btn,
-#login-btn {
+#nav-btn, #register-btn, #login-btn {
   background-color: pink;
-  width: (max-content + 10px);
+  width: 80px;
   height: 40px;
   border: none;
-  border-radius: 15px;
+  border-radius: 30px;
   text-align: center;
   align-items: center;
   margin-right: 10px;
@@ -117,6 +115,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: stretch;
+
 }
 
 #top-bar {
@@ -159,12 +158,12 @@ body {
 
 #middle-content {
   width: 60%;
-  flex-grow: 1;
   padding: 20px;
   box-sizing: border-box;
-  text-align: center;
-  position: relative;
+  /* position: relative; */
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 #right-sidebar {
@@ -189,15 +188,14 @@ body {
 }
 
 .user-details-box {
-  position: relative;
+  /* position: relative; */
   background-color: rgb(184, 231, 255);
   height: 500px;
   margin-top: 20px;
-  position: relative;
 }
 
 #editbtn {
-  background-color: rgb(66, 141, 210);
+  background-color: rgb(66, 141, 210); 
   border-style: none;
   margin-top: 25px;
   margin-right: 25px;
@@ -211,17 +209,41 @@ body {
   background-color: rgb(79, 162, 240);
 }
 
-#activities {
-  position: absolute;
-  top: 120px;
-  left: 0px;
-  width: 200px;
-  height: 100px;
+
+.recent-activities {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-#overview-box {
-  background-color: white;
-  height: 50px;
-  width: 50px;
-  top: 150px;
+.tab {
+  width: 100px;
+  height: 30px;
+  border: none;
+  border-radius: 15px;
+  color: white;
+  background-color: rgb(66, 141, 210);
+  margin: 10px;
+  float: right;
+}
+
+.section {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.segment {
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+
+  overflow: hidden;
+}
+
+.user-profile {
+  height: max-content;
 }
