@@ -58,6 +58,26 @@ session_start();
                     <form method="post">
                         <input type="text" placeholder="Search Quizzes..." id="quiz-code-input" style="width:90%">
                     </form>
+                    <?php
+                    include("../conn.php");
+                    $query = "SELECT DISTINCT quiz_type, quiz_upvote FROM quiz ORDER BY quiz_upvote DESC";
+                    $result = mysqli_query($con, $query);
+
+                    if ($result) {
+                        while ($quiz = mysqli_fetch_assoc($result)) {
+                            echo '<div class="quiz-card">';
+                            echo '<h3>' . 'Quiz Category: ' . '</h3>';
+                            echo '<p>' . $quiz['quiz_type'] . '</p>';
+                            echo '<h3>' . 'upvotes: ' . '</h3>';
+                            echo '<p>' . $quiz['quiz_upvote'] . '</p>';
+                            echo '</div>';
+                        }
+                    } else {
+                        echo "Error: " . mysqli_error($con);
+                    }
+
+                    mysqli_close($con);
+                    ?>
                 </ul>
             </div>
         </div>

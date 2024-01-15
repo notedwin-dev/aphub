@@ -45,15 +45,26 @@ if (!isset($_SESSION['user_id'])) {
 } else {
     if (isset($_POST['quiz_create'])) {
         $quiz_name = $_POST['quiz_name'];
+        echo ("<script>console.log('PHP: " . $quiz_name . "');</script>");
         $quiz_description = $_POST['quiz_description'];
         $quiz_category = $_POST['quiz_category'];
-        $admin_id = $_SESSION['mySession'];
+        $admin_id = $_SESSION['user_id'];
 
         $query = "INSERT INTO `quiz`(`quiz_name`, `quiz_description`, `quiz_type`, `admin_id`) VALUES ('$quiz_name','$quiz_description','$quiz_category', '$admin_id')";
         $result = mysqli_query($con, $query);
 
         if ($result) {
-            echo "<script>confirm('Quiz Created Successfully!');</script>";
+            $new_result = mysqli_query($con, "SELECT * FROM quiz WHERE quiz_name='$quiz_name'");
+
+            if ($new_result) {
+                while ($quiz = mysqli_fetch_assoc($new_result)) {
+                    $quiz_id = $quiz['quiz_id'];
+                    echo ("<script> alert('Quiz Created successfully!')</script>");
+                    header("location: /aphub/quiz.php?quiz_id=$quiz_id");
+                }
+            } else {
+                echo "Error: " . mysqli_error($con);
+            }
         } else {
             echo "<script>alert('Quiz Creation Failed!')</script>";
         }

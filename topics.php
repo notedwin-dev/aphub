@@ -13,16 +13,6 @@
             text-align: center;
             padding: 20px;
         }
-
-        .topic-card {
-            border: 1px solid #ddd;
-            padding: 10px;
-            margin: 10px;
-            display: inline-block;
-            width: 150px;
-            height: 150px;
-            text-align: center;
-        }
     </style>
 </head>
 
@@ -45,7 +35,8 @@
                 <br>
                 <ul><input type="button" value="New Quiz" id="left-btn" onclick="window.location.href"></ul>
                 <br>
-                <ul><input type="button" value="Users" id="left-btn" onclick="window.location.href = 'allusers.php'"></ul>
+                <ul><input type="button" value="Users" id="left-btn" onclick="window.location.href = 'all-users.php'">
+                </ul>
             </ul>
         </div>
 
@@ -58,7 +49,7 @@
 
             if ($result) {
                 while ($user = mysqli_fetch_assoc($result)) {
-                    echo '<div class="user-card">';
+                    echo '<div class="topic-card">';
                     echo '<p>' . $user['quiz_name'] . '</p>';
                     echo '<p>' . $user['quiz_type'] . '</p>';
                     echo '<p>' . $user['quiz_upvote'] . '</p>';

@@ -167,6 +167,19 @@ body {
   margin-bottom: 20px;
 }
 
+#middle-quiz-content {
+  width: 60%;
+  flex-grow: 1;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+  margin-bottom: 20px;
+}
+#middle-quiz-content h1 {
+  font-size: 30px;
+  margin-bottom: 10px;
+  text-align: center;
+}
 #right-sidebar {
   width: 20%;
   background-color: #f4f4f4;
@@ -224,4 +237,120 @@ body {
   height: 50px;
   width: 50px;
   top: 150px;
+}
+
+.quiz-card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px;
+  display: inline-block;
+  width: 200px;
+  height: max-content;
+  text-align: center;
+}
+.topic-card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px;
+  display: inline-block;
+  width: 150px;
+  height: max-content;
+  text-align: center;
+}
+
+.quiz-overview-card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px;
+  display: inline-block;
+  width: max-content;
+  height: max-content;
+  text-align: left;
+}
+
+.quiz-overview-container {
+  width: 80%;
+  margin: 20px auto;
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.quiz-info {
+  padding: 20px;
+  background-color: #2a2a2a;
+}
+
+.quiz-info h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.quiz-info h2 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.quiz-info p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.quiz-details {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.quiz-details span {
+  margin-right: 10px;
+}
+
+.quiz-tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.quiz-tags span {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #3a3a3a;
+}
+
+.join-button {
+  float: right;
+  padding: 5px 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4a4a4a;
+  cursor: pointer;
+}
+
+.comment-section {
+  padding: 20px;
+  background-color: #1a1a1a;
+}
+
+.comment-section h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.comment {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #2a2a2a;
+}
+
+.commenter {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.comment-text {
+  font-size: 16px;
 }

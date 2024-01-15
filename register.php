@@ -79,7 +79,7 @@
             $sql = "INSERT INTO user (user_name, user_email, user_password, user_edu) VALUES ('$user_name', '$user_email', '$user_password', '$user_edu')";
             $result = mysqli_query($con, $sql);
             if ($result) {
-                echo '<script>if(window.confirm("Account created successfully!")) window.location.href = "login.php"</script>';
+                echo "<script>if(window.confirm(\"Account created successfully!\")) window.location.href = \"login.php?role=$user_edu\"</script>";
             } else {
                 echo "Error: " . $sql . "<br>" . mysqli_error($con);
             }
