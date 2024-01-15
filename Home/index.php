@@ -16,10 +16,19 @@
         <a href="../home"><img src="logo.png" id="nav-icon"></a>
         <input type="text" placeholder="Enter Quiz Code..." id="quiz-code-input">
         <div>
-            <input type="button" value="Register" id="nav-btn"
-                onclick="window.location.href = '../select-role.php?action=register'">
-            <input type="button" value="Login" id="nav-btn"
-                onclick="window.location.href = '../select-role.php?action=login'">
+            <?php
+            if (isset($_SESSION["mySession"])) {
+                ?>
+                Welcome
+                <?php echo $_SESSION["mySession"]; ?>. <input type="button" value="Logout" id="nav-btn"
+                    onclick="window.location.href= 'logout.php'">
+                <?php
+            } else
+                echo "<input type=\"button\" value=\"Register\" id=\"nav-btn\"
+                onclick=\"window.location.href = '../select-role.php?action=register'\">
+            <input type=\"button\" value=\"Login\" id=\"nav-btn\"
+                onclick=\"window.location.href = '../select-role.php?action=login'\">";
+            ?>
             <i class="fa fa-bars fa-2x" id="menu-icon" style="display:none;"></i>
         </div>
     </div>

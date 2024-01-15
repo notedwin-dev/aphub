@@ -20,22 +20,42 @@
         <form method="post">
             <br>
             <br>
-            <input type="text" placeholder="Quiz Name" id="login-field">
+            <input type="text" placeholder="Quiz Name" name="quiz_name" id="login-field">
             <br>
             <br>
-            <input type="text" placeholder="Quiz Description" id="login-field">
+            <input type="text" placeholder="Quiz Description" name="quiz_description" id="login-field">
             <br>
             <br>
-            <input type="text" placeholder="Quiz Category" id="login-field">
+            <input type="text" placeholder="Quiz Category" name="quiz_category" id="login-field">
             <br>
             <br>
-            <input type="text" placeholder="Quiz Code" id="login-field">
-            <br>
-            <br>
-            <input type="submit" value="Create" id="login-btn">
+            <input type="submit" value="Create" name="quiz_create" id="login-btn">
         </form>
     </div>
 
 </body>
 
 </html>
+
+<?php
+include("conn.php");
+include("session.php");
+if (!isset($_SESSION['mySession'])) {
+    header("location: select-role.php?action=login");
+} else {
+    if (isset($_POST['quiz_create'])) {
+        $quiz_name = $_POST['quiz_name'];
+        $quiz_description = $_POST['quiz_description'];
+        $quiz_category = $_POST['quiz_category'];
+        $admin_id = $_SESSION['mySession'];
+
+        $query = "INSERT INTO `quiz`(`quiz_name`, `quiz_description`, `quiz_type`, `admin_id`) VALUES ('$quiz_name','$quiz_description','$quiz_category', '$admin_id')";
+        $result = mysqli_query($con, $query);
+
+        if ($result) {
+            echo "<script>confirm('Quiz Created Successfully!');</script>";
+        } else {
+            echo "<script>alert('Quiz Creation Failed!')</script>";
+        }
+    }
+}
