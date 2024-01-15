@@ -56,9 +56,9 @@
         $rowcount = mysqli_num_rows($result);
         $row = mysqli_fetch_array($result);
         if ($rowcount == 1) {
-            session_start();
+
             $_SESSION['mySession'] = $row['id'];
-            header("location: home.php");
+            header("location: home/");
         } else {
             echo "Your username/email/password is incorrect. Please try again.";
         }
