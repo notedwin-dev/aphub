@@ -47,7 +47,7 @@ session_start();
                 <ul><input type="button" value="New Quiz" id="left-btn" onclick="window.location.href = 'new-quiz.php'">
                 </ul>
                 <br>
-                <ul><input type="button" value="Users" id="left-btn" onclick="window.location.href = 'AllUsers.php'">
+                <ul><input type="button" value="Users" id="left-btn" onclick="window.location.href = 'allusers.php'">
                 </ul>
             </ul>
         </div>

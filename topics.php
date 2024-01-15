@@ -45,7 +45,7 @@
                 <br>
                 <ul><input type="button" value="New Quiz" id="left-btn" onclick="window.location.href"></ul>
                 <br>
-                <ul><input type="button" value="Users" id="left-btn" onclick="window.location.href = 'AllUsers.php'"></ul>
+                <ul><input type="button" value="Users" id="left-btn" onclick="window.location.href = 'allusers.php'"></ul>
             </ul>
         </div>
 
