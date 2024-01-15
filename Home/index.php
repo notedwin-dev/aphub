@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+session_start();
+?>
 
 <head>
     <meta charset="UTF-8">
@@ -17,10 +20,10 @@
         <input type="text" placeholder="Enter Quiz Code..." id="quiz-code-input">
         <div>
             <?php
-            if (isset($_SESSION["mySession"])) {
+            if (isset($_SESSION["user_name"])) {
                 ?>
                 Welcome
-                <?php echo $_SESSION["mySession"]; ?>. <input type="button" value="Logout" id="nav-btn"
+                <?php echo $_SESSION["user_name"]; ?>. <input type="button" value="Logout" id="nav-btn"
                     onclick="window.location.href= 'logout.php'">
                 <?php
             } else
@@ -38,12 +41,13 @@
     <div id="top-navigation">
         <div id="left-nav">
             <ul>
-                <ul><input type="button" value="Home" id="left-btn" onclick="window.location.href = 'home/'"></ul>
+                <ul><input type="button" value="Home" id="left-btn" onclick="window.location.href = './'"></ul>
                 <br>
-                <ul><input type="button" value="New Quiz" id="left-btn" onclick="window.location.href = 'new-quiz/'">
+                <ul><input type="button" value="New Quiz" id="left-btn" onclick="window.location.href = '../new-quiz/'">
                 </ul>
                 <br>
-                <ul><input type="button" value="Users" id="left-btn" onclick="window.location.href = 'user/'"></ul>
+                <ul><input type="button" value="Users" id="left-btn" onclick="window.location.href = '../all-users/'">
+                </ul>
             </ul>
         </div>
 

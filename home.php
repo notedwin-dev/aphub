@@ -21,11 +21,11 @@ session_start();
         <div>
 
             <?php
-            if ($_SESSION["mySession"]) {
+            if ($_SESSION["user_name"]) {
                 ?>
-                Welcome
-                <?php echo $_SESSION["mySession"]; ?>. <input type="button" value="Logout" id="nav-btn"
-                    onclick="window.location.href= 'logout.php'">
+                <p style="color: white;">Welcome
+                    <?php echo $_SESSION["user_name"]; ?>.
+                </p> <input type="button" value="Logout" id="nav-btn" onclick="window.location.href= 'logout.php'">
                 <?php
             } else
                 echo "<input type=\"button\" value=\"Register\" id=\"nav-btn\"

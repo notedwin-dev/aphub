@@ -7,7 +7,6 @@
     <title>All Users</title>
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="home/style.css">
     <style>
         #middle-content {
             text-align: center;
@@ -23,28 +22,26 @@
             text-align: center;
         }
     </style>
+    <link rel="stylesheet" href="../home/style.css">
 </head>
 
 <body>
-    <div id="top-bar">
-        <img src="home/logo.png" id="nav-icon">
-        <input type="text" placeholder="Enter Quiz Code..." id="quiz-code-input">
-        <div>
-            <input type="button" value="Logout" id="nav-btn" onclick="window.location.href= 'logout.php'">
-            <i class="fa fa-bars fa-2x" id="menu-icon" style="display:none;"></i>
-        </div>
-    </div>
+    <?php
+    include("components/navbar.php");
+    ?>
 
     <br>
 
     <div id="top-navigation">
         <div id="left-nav">
             <ul>
-                <ul><input type="button" value="Home" id="left-btn" onclick="window.location.href = 'home.php'"></ul>
+                <ul><input type="button" value="Home" id="left-btn" onclick="window.location.href = '../home/'">
+                </ul>
                 <br>
-                <ul><input type="button" value="New Quiz" id="left-btn" onclick="window.location.href"></ul>
+                <ul><input type="button" value="New Quiz" id="left-btn" onclick="window.location.href = 'new-quiz.php'">
+                </ul>
                 <br>
-                <ul><input type="button" value="Users" id="left-btn" onclick="window.location.href = 'allusers.php'"></ul>
+                <ul><input type="button" value="Users" id="left-btn" onclick="window.location.href = 'all-users/'"></ul>
             </ul>
         </div>
 

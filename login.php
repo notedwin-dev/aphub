@@ -57,7 +57,8 @@
         $row = mysqli_fetch_array($result);
         if ($rowcount == 1) {
 
-            $_SESSION['mySession'] = $row['id'];
+            $_SESSION['user_id'] = $row['user_id'];
+            $_SESSION['user_name'] = $username_or_email;
             header("location: home/");
         } else {
             echo "Your username/email/password is incorrect. Please try again.";
@@ -65,6 +66,7 @@
         mysqli_close($con);
     }
     ?>
+
 </body>
 
 </html>
