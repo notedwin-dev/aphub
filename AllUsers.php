@@ -4,11 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>All Users</title>
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="home/style.css">
+    <style>
+        #middle-content {
+            text-align: center;
+            padding: 20px;
+        }
 
+        .user-card {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+            display: inline-block;
+            width: 150px;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -30,19 +44,31 @@
                 <br>
                 <ul><input type="button" value="New Quiz" id="left-btn" onclick="window.location.href"></ul>
                 <br>
-                <ul><input type="button" value="Users" id="left-btn" onclick="window.location.href = 'AllUsers.php'"></ul>
+                <ul><input type="button" value="Users" id="left-btn" onclick="window.location.href = 'AllUsers'"></ul>
             </ul>
         </div>
 
         <div id="middle-content">
-            <div id="top-categories">
-                <h2>Top Quiz Categories</h2>
-                <ul>
-                    <form method="post">
-                        <input type="text" placeholder="Search Quizzes..." id="quiz-code-input" style="width:90%">
-                    </form>
-                </ul>
-            </div>
+            <h2>All Users</h2>
+            <?php
+            $users = [
+                ['name' => 'User 1', 'role' => 'Student'],
+                ['name' => 'User 2', 'role' => 'Lecturer'],
+                ['name' => 'User 3', 'role' => 'Student'],
+                ['name' => 'User 4', 'role' => 'Lecturer'],
+                ['name' => 'User 5', 'role' => 'Student'],
+                ['name' => 'User 6', 'role' => 'Lecturer'],
+                ['name' => 'User 7', 'role' => 'Student'],
+                ['name' => 'User 8', 'role' => 'Lecturer'],
+            ];
+
+            foreach ($users as $user) {
+                echo '<div class="user-card">';
+                echo '<p>' . $user['name'] . '</p>';
+                echo '<p>' . $user['role'] . '</p>';
+                echo '</div>';
+            }
+            ?>
         </div>
 
         <div id="right-sidebar">
