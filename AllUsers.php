@@ -51,24 +51,24 @@
         <div id="middle-content">
             <h2>All Users</h2>
             <?php
-            $users = [
-                ['name' => 'User 1', 'role' => 'Student'],
-                ['name' => 'User 2', 'role' => 'Lecturer'],
-                ['name' => 'User 3', 'role' => 'Student'],
-                ['name' => 'User 4', 'role' => 'Lecturer'],
-                ['name' => 'User 5', 'role' => 'Student'],
-                ['name' => 'User 6', 'role' => 'Lecturer'],
-                ['name' => 'User 7', 'role' => 'Student'],
-                ['name' => 'User 8', 'role' => 'Lecturer'],
-            ];
+            include("conn.php");
+            $query = "SELECT * FROM user";
+            $result = mysqli_query($con, $query);
 
-            foreach ($users as $user) {
-                echo '<div class="user-card">';
-                echo '<p>' . $user['name'] . '</p>';
-                echo '<p>' . $user['role'] . '</p>';
-                echo '</div>';
+            if ($result) {
+                while ($user = mysqli_fetch_assoc($result)) {
+                    echo '<div class="user-card">';
+                    echo '<p>' . $user['user_name'] . '</p>';
+                    echo '<p>' . $user['user_edu'] . '</p>';
+                    echo '</div>';
+                }
+            } else {
+                echo "Error: " . mysqli_error($con);
             }
+
+            mysqli_close($con);
             ?>
+
         </div>
 
         <div id="right-sidebar">
