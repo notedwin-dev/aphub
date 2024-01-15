@@ -12,25 +12,27 @@
 </head>
 
 <body>
-    <div id="top-bar">
-        <img src="home/logo.png" id="nav-icon">
-        <input type="text" placeholder="Enter Quiz Code..." id="quiz-code-input">
-        <div>
-            <input type="button" value="Logout" id="nav-btn" onclick="window.location.href= 'logout.php'">
-            <i class="fa fa-bars fa-2x" id="menu-icon" style="display:none;"></i>
-        </div>
-    </div>
+    <?php
+    include("components/navbar.php");
+    ?>
 
     <br>
 
     <div id="top-navigation">
         <div id="left-nav">
             <ul>
-                <ul><input type="button" value="Home" id="left-btn" onclick="window.location.href = 'home/'"></ul>
+                <li><input type="button" value="Home" id="left-btn" onclick="window.location.href = '../home/'"></li>
                 <br>
-                <ul><input type="button" value="New Quiz" id="left-btn" onclick="window.location.href"></ul>
+                <li><input type="button" value="New Quiz" id="left-btn" onclick="window.location.href = '../new-quiz/'">
+                </li>
                 <br>
-                <ul><input type="button" value="Users" id="left-btn" onclick="window.location.href"></ul>
+                <li><input type="button" value="Users" id="left-btn" onclick="window.location.href = '../all-users/'">
+                </li>
+                <br>
+                <li>
+                    <input type="button" value="My Profile" id="left-btn"
+                        onclick="window.location.href = './user.php?user_id=<?php echo $_SESSION['user_id']; ?>'">
+                </li>
             </ul>
         </div>
 
@@ -41,7 +43,7 @@
                     <div class="segment user-profile">
                         <form method="post">
                             <h2>
-                            <?php
+                                <?php
                                 if (isset($_GET['user_id']) && !empty($_GET['user_id'])) {
                                     include("conn.php");
 
@@ -57,7 +59,7 @@
                                         if ($user_details) {
                                             echo "$user_details[user_name]";
                                             echo "<br>";
-                                            echo "$user_details[user_id]";
+                                            echo "#$user_details[user_id]";
                                         } else {
                                             echo "Error: User not found";
                                         }
@@ -69,22 +71,25 @@
                                 } else {
                                     echo "Error: 'user_id' parameter is empty or undefined";
                                 }
-                            ?>
+                                ?>
                             </h2>
-                            <button class="button" id="editbtn">Edit Profile</button>
+                            <button class="button" id="editbtn"
+                                onclick="window.location.href = '/aphub/edit-profile.php'">Edit
+                                Profile</button>
                             <!-- put bio here -->
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget nisl tempor, congue orci eu,
-                    blandit sem. Sed porta fermentum ipsum maximus volutpat. In posuere finibus ipsum sed mollis.</p>
+                            <?php
+                            echo "<p>$user_details[user_bio]</p>";
+                            ?>
 
-  
+
 
                         </form>
                     </div>
                     <div class="section recent-activities">
                         <div>Recent Activities</div>
                         <div>
-                            <button class= "tab" style="">Overview</button>
-                            <button class= "tab">Quizzes</button>
+                            <button class="tab" style="">Overview</button>
+                            <button class="tab">Quizzes</button>
                         </div>
                     </div>
                 </ul>

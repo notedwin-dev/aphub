@@ -8,6 +8,10 @@
   cursor: pointer;
 }
 
+li {
+  list-style-type: none;
+}
+
 nav {
   background-color: grey;
   top: 0;
@@ -75,6 +79,7 @@ input[type="text"] {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  padding: 10px 10px;
 }
 
 @media screen and (min-width: 1000px) {
@@ -241,7 +246,9 @@ body {
 }
 
 .quiz-card {
+  color: white;
   border: 1px solid #ddd;
+  background-color: #4a4a4a;
   padding: 10px;
   margin: 10px;
   display: inline-block;

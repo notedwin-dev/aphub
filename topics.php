@@ -17,26 +17,31 @@
 </head>
 
 <body>
-    <div id="top-bar">
-        <img src="home/logo.png" id="nav-icon">
-        <input type="text" placeholder="Enter Quiz Code..." id="quiz-code-input">
-        <div>
-            <input type="button" value="Logout" id="nav-btn" onclick="window.location.href= 'logout.php'">
-            <i class="fa fa-bars fa-2x" id="menu-icon" style="display:none;"></i>
-        </div>
-    </div>
+    <?php
+    include("components/navbar.php");
+    ?>
 
     <br>
 
     <div id="top-navigation">
         <div id="left-nav">
             <ul>
-                <ul><input type="button" value="Home" id="left-btn" onclick="window.location.href = 'home.php'"></ul>
+                <li><input type="button" value="Home" id="left-btn" onclick="window.location.href = '../home/'"></li>
                 <br>
-                <ul><input type="button" value="New Quiz" id="left-btn" onclick="window.location.href"></ul>
+                <li><input type="button" value="New Quiz" id="left-btn" onclick="window.location.href = '../new-quiz/'">
+                </li>
                 <br>
-                <ul><input type="button" value="Users" id="left-btn" onclick="window.location.href = 'all-users.php'">
-                </ul>
+                <li><input type="button" value="Users" id="left-btn" onclick="window.location.href = '../all-users/'">
+                </li>
+                <br>
+                <li>
+                    <input type="button" value="Topics" id="left-btn" onclick="window.location.href = '../topics.php'">
+                </li>
+                <br>
+                <li>
+                    <input type="button" value="My Profile" id="left-btn"
+                        onclick="window.location.href = '../user.php?user_id=<?php echo $_SESSION['user_id']; ?>'">
+                </li>
             </ul>
         </div>
 
