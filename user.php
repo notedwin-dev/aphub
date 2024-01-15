@@ -38,31 +38,54 @@
             <h2 id="main-text-center">My Profile</h2>
             <div class="user-details-box">
                 <ul>
-                    <form method="post">
-                        <h2 style="float:left">
-                        <?php
-                            include("conn.php");
-                            $query = "SELECT * FROM user WHERE user_id='$_GET[user_id]'";
-                            $result = mysqli_query($con, $query);
-                            
-                            if ($result) {
-                                $user_details = mysqli_fetch_array($result);
-                                echo "$user_details[user_name]";
-                            } else {
-                                echo "Error: " . mysqli_error($con);
-                            }
-                            
-                            mysqli_close($con);
-                        ?>
-                        </h2>
-                        <!-- put bio here -->
+                    <div class="segment user-profile">
+                        <form method="post">
+                            <h2>
+                            <?php
+                                if (isset($_GET['user_id']) && !empty($_GET['user_id'])) {
+                                    include("conn.php");
 
-                        <button class="button" id="editbtn">Edit Profile</button>
+                                    // Sanitize the user_id to prevent SQL injection
+                                    $user_id = mysqli_real_escape_string($con, $_GET['user_id']);
 
-                    </form>
-                    <div id="activities">
-                        <h3>Recent Activities</h3>
-                        <div id="overview-box"></div>
+                                    $query = "SELECT * FROM user WHERE user_id='$user_id'";
+                                    $result = mysqli_query($con, $query);
+
+                                    if ($result) {
+                                        $user_details = mysqli_fetch_array($result);
+
+                                        if ($user_details) {
+                                            echo "$user_details[user_name]";
+                                            echo "<br>";
+                                            echo "$user_details[user_id]";
+                                        } else {
+                                            echo "Error: User not found";
+                                        }
+                                    } else {
+                                        echo "Error: " . mysqli_error($con);
+                                    }
+
+                                    mysqli_close($con);
+                                } else {
+                                    echo "Error: 'user_id' parameter is empty or undefined";
+                                }
+                            ?>
+                            </h2>
+                            <button class="button" id="editbtn">Edit Profile</button>
+                            <!-- put bio here -->
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget nisl tempor, congue orci eu,
+                    blandit sem. Sed porta fermentum ipsum maximus volutpat. In posuere finibus ipsum sed mollis.</p>
+
+  
+
+                        </form>
+                    </div>
+                    <div class="section recent-activities">
+                        <div>Recent Activities</div>
+                        <div>
+                            <button class= "tab" style="">Overview</button>
+                            <button class= "tab">Quizzes</button>
+                        </div>
                     </div>
                 </ul>
             </div>
