@@ -13,11 +13,13 @@
 
 <body>
     <div id="top-bar">
-        <img src="logo.png" id="nav-icon">
+        <a href="../home"><img src="logo.png" id="nav-icon"></a>
         <input type="text" placeholder="Enter Quiz Code..." id="quiz-code-input">
         <div>
-            <input type="button" value="Register" id="nav-btn" onclick="window.location.href = '../select-role.php?action=register'">
-            <input type="button" value="Login" id="nav-btn" onclick="window.location.href = '../select-role.php?action=login'">
+            <input type="button" value="Register" id="nav-btn"
+                onclick="window.location.href = '../select-role.php?action=register'">
+            <input type="button" value="Login" id="nav-btn"
+                onclick="window.location.href = '../select-role.php?action=login'">
             <i class="fa fa-bars fa-2x" id="menu-icon" style="display:none;"></i>
         </div>
     </div>
@@ -29,9 +31,10 @@
             <ul>
                 <ul><input type="button" value="Home" id="left-btn" onclick="window.location.href = 'home/'"></ul>
                 <br>
-                <ul><input type="button" value="New Quiz" id="left-btn" onclick="window.location.href"></ul>
+                <ul><input type="button" value="New Quiz" id="left-btn" onclick="window.location.href = 'new-quiz/'">
+                </ul>
                 <br>
-                <ul><input type="button" value="Users" id="left-btn" onclick="window.location.href"></ul>
+                <ul><input type="button" value="Users" id="left-btn" onclick="window.location.href = 'user/'"></ul>
             </ul>
         </div>
 

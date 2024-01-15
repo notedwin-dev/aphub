@@ -32,12 +32,14 @@ input[type="text"] {
   justify-content: center;
 }
 
-#nav-btn, #register-btn, #login-btn {
+#nav-btn,
+#register-btn,
+#login-btn {
   background-color: pink;
-  width: 80px;
+  width: (max-content + 10px);
   height: 40px;
   border: none;
-  border-radius: 30px;
+  border-radius: 15px;
   text-align: center;
   align-items: center;
   margin-right: 10px;
@@ -115,7 +117,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-
 }
 
 #top-bar {
@@ -196,7 +197,7 @@ body {
 }
 
 #editbtn {
-  background-color: rgb(66, 141, 210); 
+  background-color: rgb(66, 141, 210);
   border-style: none;
   margin-top: 25px;
   margin-right: 25px;
@@ -209,7 +210,6 @@ body {
 #editbtn:hover {
   background-color: rgb(79, 162, 240);
 }
-
 
 #activities {
   position: absolute;
@@ -224,5 +224,4 @@ body {
   height: 50px;
   width: 50px;
   top: 150px;
-
 }
