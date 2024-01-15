@@ -24,7 +24,7 @@ session_start();
                 ?>
                 Welcome
                 <?php echo $_SESSION["user_name"]; ?>. <input type="button" value="Logout" id="nav-btn"
-                    onclick="window.location.href= 'logout.php'">
+                    onclick="window.location.href= '../logout.php'">
                 <?php
             } else
                 echo "<input type=\"button\" value=\"Register\" id=\"nav-btn\"

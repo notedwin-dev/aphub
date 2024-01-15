@@ -25,7 +25,7 @@ session_start();
                 ?>
                 <p style="color: white;">Welcome
                     <?php echo $_SESSION["user_name"]; ?>.
-                </p> <input type="button" value="Logout" id="nav-btn" onclick="window.location.href= 'logout.php'">
+                </p> <input type="button" value="Logout" id="nav-btn" onclick="window.location.href= '../logout.php'">
                 <?php
             } else
                 echo "<input type=\"button\" value=\"Register\" id=\"nav-btn\"
@@ -47,7 +47,7 @@ session_start();
                 <ul><input type="button" value="New Quiz" id="left-btn" onclick="window.location.href = 'new-quiz.php'">
                 </ul>
                 <br>
-                <ul><input type="button" value="Users" id="left-btn" onclick="window.location.href = 'allusers.php'">
+                <ul><input type="button" value="Users" id="left-btn" onclick="window.location.href = 'all-users.php'">
                 </ul>
             </ul>
         </div>
