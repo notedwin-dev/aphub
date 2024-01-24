@@ -17,16 +17,22 @@
     <div id="top-navigation">
         <div id="left-nav">
             <ul>
-                <ul><input type="button" value="Home" id="left-btn" onclick="window.location.href = '/aphub/home/'">
-                </ul>
+                <li><input type="button" value="Home" id="left-btn" onclick="window.location.href = './home/'"></li>
                 <br>
-                <ul><input type="button" value="New Quiz" id="left-btn"
-                        onclick="window.location.href = '/aphub/new-quiz/'">
-                </ul>
+                <li><input type="button" value="New Quiz" id="left-btn" onclick="window.location.href = './new-quiz/'">
+                </li>
                 <br>
-                <ul><input type="button" value="Users" id="left-btn"
-                        onclick="window.location.href = '/aphub/all-users/'">
-                </ul>
+                <li><input type="button" value="Users" id="left-btn" onclick="window.location.href = './all-users/'">
+                </li>
+                <br>
+                <li>
+                    <input type="button" value="Topics" id="left-btn" onclick="window.location.href = './topics.php'">
+                </li>
+                <br>
+                <li>
+                    <input type="button" value="My Profile" id="left-btn"
+                        onclick="window.location.href = './user.php?user_id=<?php echo $_SESSION['user_id']; ?>'">
+                </li>
             </ul>
         </div>
 

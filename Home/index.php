@@ -53,10 +53,13 @@ session_start();
                     <input type="button" value="Topics" id="left-btn" onclick="window.location.href = '../topics.php'">
                 </li>
                 <br>
-                <li>
-                    <input type="button" value="My Profile" id="left-btn"
-                        onclick="window.location.href = '../user.php?user_id=<?php echo $_SESSION['user_id']; ?>'">
-                </li>
+                <?php if (isset($_SESSION["id"])) { ?>
+                    <li>
+                        <input type="button" value="My Profile" id="left-btn"
+                            onclick="window.location.href = '../user.php?user_id=<?php echo $_SESSION['user_id']; ?>'">
+                    </li>
+
+                <?php } ?>
             </ul>
         </div>
 
