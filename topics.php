@@ -26,21 +26,21 @@
     <div id="top-navigation">
         <div id="left-nav">
             <ul>
-                <li><input type="button" value="Home" id="left-btn" onclick="window.location.href = '../home/'"></li>
+                <li><input type="button" value="Home" id="left-btn" onclick="window.location.href = './home/'"></li>
                 <br>
-                <li><input type="button" value="New Quiz" id="left-btn" onclick="window.location.href = '../new-quiz/'">
+                <li><input type="button" value="New Quiz" id="left-btn" onclick="window.location.href = './new-quiz/'">
                 </li>
                 <br>
-                <li><input type="button" value="Users" id="left-btn" onclick="window.location.href = '../all-users/'">
+                <li><input type="button" value="Users" id="left-btn" onclick="window.location.href = './all-users/'">
                 </li>
                 <br>
                 <li>
-                    <input type="button" value="Topics" id="left-btn" onclick="window.location.href = '../topics.php'">
+                    <input type="button" value="Topics" id="left-btn" onclick="window.location.href = './topics.php'">
                 </li>
                 <br>
                 <li>
                     <input type="button" value="My Profile" id="left-btn"
-                        onclick="window.location.href = '../user.php?user_id=<?php echo $_SESSION['user_id']; ?>'">
+                        onclick="window.location.href = './user.php?user_id=<?php echo $_SESSION['user_id']; ?>'">
                 </li>
             </ul>
         </div>
@@ -55,9 +55,14 @@
             if ($result) {
                 while ($user = mysqli_fetch_assoc($result)) {
                     echo '<div class="topic-card">';
+                    echo '<a href="./quiz.php?quiz_id=';
+                    echo $user['quiz_id'];
+                    echo '"';
+                    echo 'style="text-decoration: none; color: black;">';
                     echo '<p>' . $user['quiz_name'] . '</p>';
                     echo '<p>' . $user['quiz_type'] . '</p>';
-                    echo '<p>' . $user['quiz_upvote'] . '</p>';
+                    echo '<p>' . $user['quiz_upvote'] . ' upvotes' . '</p>';
+                    echo '</a>';
                     echo '</div>';
                 }
             } else {
@@ -73,9 +78,21 @@
             <div id="hot-quizzes">
                 <h2>Hot Quizzes</h2>
                 <ul style=" list-style-type: none;">
-                    <li>Quiz 1</li>
-                    <li>Quiz 2</li>
-                    <li>Quiz 3</li>
+                    <?php
+                    include("conn.php");
+                    $query = "SELECT * FROM quiz ORDER BY quiz_upvote DESC";
+                    $result = mysqli_query($con, $query);
+
+                    if ($result) {
+                        while ($quiz = mysqli_fetch_assoc($result)) {
+                            echo '<li>' . $quiz['quiz_name'] . '</li>';
+                        }
+                    } else {
+                        echo "Error: " . mysqli_error($con);
+                    }
+
+                    mysqli_close($con);
+                    ?>
                 </ul>
             </div>
 
@@ -84,9 +101,21 @@
             <div id="hot-topics">
                 <h2>Hot Topics</h2>
                 <ul style=" list-style-type: none;">
-                    <li>Topic 1</li>
-                    <li>Topic 2</li>
-                    <li>Topic 3</li>
+                    <?php
+                    include("conn.php");
+                    $query = "SELECT DISTINCT quiz_type, quiz_upvote FROM quiz ORDER BY quiz_upvote DESC";
+                    $result = mysqli_query($con, $query);
+
+                    if ($result) {
+                        while ($quiz = mysqli_fetch_assoc($result)) {
+                            echo '<li>' . $quiz['quiz_type'] . '</li>';
+                        }
+                    } else {
+                        echo "Error: " . mysqli_error($con);
+                    }
+
+                    mysqli_close($con);
+                    ?>
                 </ul>
             </div>
         </div>

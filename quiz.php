@@ -101,9 +101,21 @@
             <div id="hot-quizzes">
                 <h2>Hot Quizzes</h2>
                 <ul style=" list-style-type: none;">
-                    <li>Quiz 1</li>
-                    <li>Quiz 2</li>
-                    <li>Quiz 3</li>
+                    <?php
+                    include("conn.php");
+                    $query = "SELECT * FROM quiz ORDER BY quiz_upvote DESC";
+                    $result = mysqli_query($con, $query);
+
+                    if ($result) {
+                        while ($quiz = mysqli_fetch_assoc($result)) {
+                            echo '<li>' . $quiz['quiz_name'] . '</li>';
+                        }
+                    } else {
+                        echo "Error: " . mysqli_error($con);
+                    }
+
+                    mysqli_close($con);
+                    ?>
                 </ul>
             </div>
 
@@ -112,9 +124,21 @@
             <div id="hot-topics">
                 <h2>Hot Topics</h2>
                 <ul style=" list-style-type: none;">
-                    <li>Topic 1</li>
-                    <li>Topic 2</li>
-                    <li>Topic 3</li>
+                    <?php
+                    include("conn.php");
+                    $query = "SELECT DISTINCT quiz_type, quiz_upvote FROM quiz ORDER BY quiz_upvote DESC";
+                    $result = mysqli_query($con, $query);
+
+                    if ($result) {
+                        while ($quiz = mysqli_fetch_assoc($result)) {
+                            echo '<li>' . $quiz['quiz_type'] . '</li>';
+                        }
+                    } else {
+                        echo "Error: " . mysqli_error($con);
+                    }
+
+                    mysqli_close($con);
+                    ?>
                 </ul>
             </div>
         </div>
