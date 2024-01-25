@@ -110,7 +110,6 @@
 
 <?php
 include("conn.php");
-include("session.php");
 if (!isset($_SESSION['user_id'])) {
     header("location: /aphub/select-role.php?action=login");
 } else {

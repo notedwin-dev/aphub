@@ -99,7 +99,15 @@
     
                 // Check if the user is a student or lecturer
                 if ($user_edu == 'student' && $user_domain == 'mail.apu.edu.my') {
-                    insertIntoDataBase($user_name, $user_email, $user_password, $user_edu);
+
+                    // Now we want to check if the user has already been registered before we insert into the database
+                    $sql = "SELECT * FROM user WHERE user_email = '$user_email'";
+                    $result = mysqli_query($con, $sql);
+                    if (mysqli_num_rows($result) > 0) {
+                        displayError('This email address has already been registered.');
+                    } else {
+                        insertIntoDataBase($user_name, $user_email, $user_password, $user_edu);
+                    }
                 } elseif ($user_edu == 'lecturer' && $user_domain == 'apu.edu.my') {
                     insertIntoDataBase($user_name, $user_email, $user_password, $user_edu);
                 } else {

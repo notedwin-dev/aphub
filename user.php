@@ -46,52 +46,62 @@
                 <ul>
                     <div class="segment user-profile">
                         <form method="post">
-                            <h2>
-                                <?php
-                                if (isset($_GET['user_id']) && !empty($_GET['user_id'])) {
-                                    include("conn.php");
+                            <?php
+                            if (isset($_GET['user_id']) && !empty($_GET['user_id'])) {
+                                include("conn.php");
 
-                                    // Sanitize the user_id to prevent SQL injection
-                                    $user_id = mysqli_real_escape_string($con, $_GET['user_id']);
+                                // Sanitize the user_id to prevent SQL injection
+                                $user_id = mysqli_real_escape_string($con, $_GET['user_id']);
 
-                                    $query = "SELECT * FROM user WHERE user_id='$user_id'";
-                                    $result = mysqli_query($con, $query);
+                                $query = "SELECT * FROM user WHERE user_id='$user_id'";
+                                $result = mysqli_query($con, $query);
 
-                                    if ($result) {
-                                        $user_details = mysqli_fetch_array($result);
+                                if ($result) {
+                                    $user_details = mysqli_fetch_array($result);
 
-                                        if ($user_details) {
-                                            echo "$user_details[user_name]";
-                                            echo "<br>";
-                                            echo "#$user_details[user_id]";
-                                        } else {
-                                            echo "Error: User not found";
-                                        }
+                                    if ($user_details) {
+                                        echo "<h2>$user_details[user_name]#$user_details[user_id]</h2>";
                                     } else {
-                                        echo "Error: " . mysqli_error($con);
+                                        echo "Error: User not found";
                                     }
-
-                                    mysqli_close($con);
                                 } else {
-                                    echo "Error: 'user_id' parameter is empty or undefined";
+                                    echo "Error: " . mysqli_error($con);
                                 }
-                                ?>
-                            </h2>
-                            <button class="button" id="editbtn"
-                                onclick="window.location.href = '/aphub/edit-profile.php'">Edit
-                                Profile</button>
+
+                                mysqli_close($con);
+                            } else {
+                                echo "Error: 'user_id' parameter is empty or undefined";
+                            }
+                            ?>
+
                             <!-- put bio here -->
                             <?php
-                            echo "<p>$user_details[user_bio]</p>";
+                            if ($user_details['user_bio'] != "") {
+                                echo "<p>$user_details[user_bio]</p>";
+                            } else {
+                                echo "<p>This user hasn't written a bio yet, but they are a cool person.</p>";
+                            }
+                            ?>
+
+                            <!-- Hide the Edit Profile Button if the user_id doesn't match the user's id in PHP session -->
+
+                            <?php
+                            if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
+                                if ($_SESSION['user_id'] == $user_details['user_id']) {
+                                    echo '<button id="editbtn"
+                                    onclick="window.location.href = \'/aphub/edit-profile.php\'">Edit
+                                    Profile</button>';
+                                }
+                            }
                             ?>
 
 
 
                         </form>
                     </div>
-                    <div class="section recent-activities">
-                        <div>Recent Activities</div>
-                        <div>
+                    <div class="section">
+                        <div class="recent-activities" style="float: left;">Recent Activities</div>
+                        <div style="float: right;">
                             <button class="tab" style="">Overview</button>
                             <button class="tab">Quizzes</button>
                         </div>

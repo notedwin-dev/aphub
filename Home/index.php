@@ -43,7 +43,8 @@ session_start();
             <ul>
                 <li><input type="button" value="Home" id="left-btn" onclick="window.location.href = './'"></li>
                 <br>
-                <li><input type="button" value="New Quiz" id="left-btn" onclick="window.location.href = '../new-quiz/'">
+                <li><input type="button" value="New Quiz" id="left-btn"
+                        onclick="window.location.href = '../new-quiz.php'">
                 </li>
                 <br>
                 <li><input type="button" value="Users" id="left-btn" onclick="window.location.href = '../all-users/'">
@@ -53,7 +54,7 @@ session_start();
                     <input type="button" value="Topics" id="left-btn" onclick="window.location.href = '../topics.php'">
                 </li>
                 <br>
-                <?php if (isset($_SESSION["id"])) { ?>
+                <?php if (isset($_SESSION["user_id"])) { ?>
                     <li>
                         <input type="button" value="My Profile" id="left-btn"
                             onclick="window.location.href = '../user.php?user_id=<?php echo $_SESSION['user_id']; ?>'">

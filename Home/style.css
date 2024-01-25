@@ -216,8 +216,6 @@ body {
 #editbtn {
   background-color: rgb(66, 141, 210);
   border-style: none;
-  margin-top: 25px;
-  margin-right: 25px;
   float: right;
   padding: 10px;
   color: white;
@@ -232,6 +230,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  float: left;
 }
 
 .tab {

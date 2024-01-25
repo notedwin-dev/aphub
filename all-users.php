@@ -17,7 +17,6 @@
             border: 1px solid #ddd;
             padding: 10px;
             margin: 10px;
-            display: inline-block;
             width: 150px;
             text-align: center;
         }
@@ -55,7 +54,7 @@
         </div>
 
         <div id="middle-content">
-            <h2>All Users</h2>
+            <h2 id="main-text-center">All Users</h2>
             <?php
             include("conn.php");
             $query = "SELECT * FROM user";
@@ -64,8 +63,10 @@
             if ($result) {
                 while ($user = mysqli_fetch_assoc($result)) {
                     echo '<div class="user-card">';
+                    echo '<a href="../user.php?user_id=' . $user['user_id'] . '" style="text-decoration: none; color: black;" >';
                     echo '<p>' . $user['user_name'] . '</p>';
                     echo '<p>' . $user['user_edu'] . '</p>';
+                    echo '</a>';
                     echo '</div>';
                 }
             } else {
